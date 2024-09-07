@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} 
+
+main {
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.writing-mode-vertical-lr {
+  writing-mode: vertical-lr;
+}
+
+.transition-theme {
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+:root {
+  --scrollbar-thumb-color-light: #999;
+  --scrollbar-track-color-light: #f1f1f1;
+  --scrollbar-thumb-color-dark: #555;
+  --scrollbar-track-color-dark: #333;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-color);
+  border-radius: 9999px;
+}
+
+.dark {
+  --scrollbar-thumb-color: var(--scrollbar-thumb-color-dark);
+  --scrollbar-track-color: var(--scrollbar-track-color-dark);
+}
+
+.scroll-rounded::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
+}
+
+.scroll-rounded::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-color);
+}
+
+.line-container {
+  position: relative;
+}
+
+.line-container::after {
+  content: '';
+  height: 3px;
+  border-radius: 5px;
+  width: calc(100% + 36px);
+  background-color: #818181;
+  position: absolute;
+  bottom: -6px;
+  left: -34px;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.5s cubic-bezier(0.3, 0.5, 0.7, 0.9);
+}
+
+.button-container.active .line-container::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
